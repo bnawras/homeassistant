@@ -1,0 +1,1 @@
+from .weather import register_weather_handlers

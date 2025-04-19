@@ -1,0 +1,1 @@
+from .photos import register_photos_handler

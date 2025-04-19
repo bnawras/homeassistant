@@ -131,3 +131,6 @@ dmypy.json
 /.idea
 *.session
 
+config.yaml
+*.pickle
+
