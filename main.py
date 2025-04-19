@@ -1,8 +1,7 @@
+#!/home/bnawras/Documents/src/notifier/.venv/bin/python
 import asyncio
 import pickle
 import logging.config
-
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from handlers.cards import register_irregular_en_verb_cards
 from handlers.common import register_common_handlers
