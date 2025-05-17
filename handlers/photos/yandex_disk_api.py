@@ -13,7 +13,7 @@ class YandexDiskApi:
     def __init__(self, token):
         headers = {'Authorization': f'OAuth {token}'}
         transport = httpx.AsyncHTTPTransport(retries=3)
-        self._client = httpx.AsyncClient(headers=headers, transport=transport)
+        self._client = httpx.AsyncClient(headers=headers, transport=transport, timeout=20)
 
         response_fields = ['name', 'path', 'type', 'mime_type', 'created']
         self._params = dict(

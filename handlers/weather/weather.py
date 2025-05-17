@@ -107,19 +107,19 @@ def register_weather_handlers(client: TelegramClient, config, family):
         tasks = [
             client.send_message(chat_id, 'Утро доброе!'),
             send_current_weather(client, chat_id),
-            send_hourly_forecast(client, chat_id),
+            # send_hourly_forecast(client, chat_id),
         ]
 
         tomorrow = datetime.today() + timedelta(days=1)
         for task in tasks:
             response = await task
-            task = delete_message(client, tomorrow, chat_id, response.message_id)
+            task = delete_message(client, tomorrow, chat_id, response.id)
             asyncio.create_task(task)
 
     async def weekly_information(client, chat_id):
         response = await send_daily_forecast(client, chat_id)
         next_week = datetime.today() + timedelta(days=7)
-        task = delete_message(client, next_week, chat_id, response.message_id)
+        task = delete_message(client, next_week, chat_id, response.id)
         asyncio.create_task(task)
 
     @client.on(events.CallbackQuery(pattern='hourly_forecast.*'))
@@ -147,5 +147,5 @@ def register_weather_handlers(client: TelegramClient, config, family):
     async def current_weather(event: NewMessage.Event):
         await send_current_weather(client, event.chat_id)
 
-    scheduler.add_job(morning_information, 'cron', hour=8, args=[client, family])
+    scheduler.add_job(morning_information, 'cron', hour=9, minute=8, args=[client, family])
     scheduler.add_job(weekly_information, 'cron', hour=15, day_of_week=5, args=[client, family])
