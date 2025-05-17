@@ -7,4 +7,5 @@ Features are being gradually added. Currently implemented:
 - Random family photos from a personal gallery
 - Basic scheduling functionality
 
-Note: This project is a simple personal automation tool. It is not designed for production use, multi-user support, or high-load environments, and it does not serve as a reference for clean code or architecture.
+> [!IMPORTANT]
+> This project is a simple personal automation tool. It is not designed for production use, multi-user support, or high-load environments, and it does not serve as a reference for clean code or architecture.

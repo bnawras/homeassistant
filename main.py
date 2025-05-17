@@ -49,8 +49,3 @@ try:
 finally:
     with open(deleted_ids_storage, 'wb') as file:
         pickle.dump(deleted_messages, file)
-
-
-# TODO: рефакторинг -> commit/push
-# TODO: skills радар
-# TODO: может боты, которые делают то, что делают приложения в нашей компании
